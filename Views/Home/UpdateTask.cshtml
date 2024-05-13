@@ -1,0 +1,58 @@
+﻿@model MTask
+@{
+    ViewBag.Title = "Update a task";
+}
+
+<h2>Update a Task <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form method="post" asp-action="UpdateTask">
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" value=@Model.Name name="Name"/>
+    </div>
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <input class="form-control"  value=@Model.Description name="Description"/>
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date:</label>
+        <input type="date" class="form-control" value=@Model.DueDate name="DueDate"/>
+    </div>
+    <div class="form-group">
+        <label for="Priority">Priority:</label>
+        <input type="number" class="form-control"value=@Model.Priority name="Priority"/>
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" class="form-control"  value=@Model.status name="status"/>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">update</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Success")
+{
+    <h2>Task</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Due Date </th>
+                <th>Priority </th>
+                <th>Status </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Description</td>
+                <Td>@Model.DueDate</td>
+                <Td>@Model.Priority</td>
+                <td>@Model.status</td>
+            </tr>
+        </tbody>
+    </table>
+}

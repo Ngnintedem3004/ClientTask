@@ -1,0 +1,59 @@
+﻿@model MTask
+@{
+    ViewBag.Title = "Add a Task";
+}
+
+<h2>Add a Task <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddTask" method="post">
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" name="Name" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <input class="form-control" name="Description" />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date:</label>
+        <input type="date"class="form-control" name="DueDate" />
+    </div>
+    
+    <div class="form-group">
+        <label for="Piority">Priority:</label>
+        <input type="number" class="form-control" name="Priority" />
+    </div>
+     <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" class="form-control" name="status" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <h2>Reservation</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Due Date </th>
+                <th>Priority </th>
+                <th>Status </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Description</td>
+                <Td>@Model.DueDate</td>
+                <Td>@Model.Priority</td>
+                <td>@Model.status</td>
+            </tr>
+        </tbody>
+    </table>
+}

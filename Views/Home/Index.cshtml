@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MTask>
+
+@{
+    ViewData["Title"] = "All Tasks";
+}
+
+<h2>All Tasks</h2>
+<a asp-action="AddTask" class="btn btn-sm btn-primary">Add Task</a>
+<a asp-action="GetTask" class="btn btn-sm btn-secondary">Get Task</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Id</td>
+                <td>@r.Name</td>
+                <td>@r.Description</td>
+                <td>@r.Priority</td>
+                <td>@r.DueDate</td>
+                <td>@r.status</td>
+                <td>
+                    <a asp-action="UpdateTask" asp-route-id="@r.Id">
+                        update
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteTask" method="post">
+                        <input type="hidden" value="@r.Id" name="Id" />
+                        <input type="submit" value="delete" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
